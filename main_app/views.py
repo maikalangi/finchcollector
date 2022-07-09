@@ -21,3 +21,4 @@ def finches_detail(request, finches_id):
 class FinchesCreate(CreateView):
     model = Finches
     fields = '__all__'
+    success_url = '/finches/'
