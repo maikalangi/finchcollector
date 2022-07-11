@@ -20,14 +20,25 @@ def finches_detail(request, finches_id):
     finches = Finches.objects.get(id=finches_id)
     return render(request, 'finches/detail.html', { 'finches': finches })
 
-class ToysList(ListView):
+class ToyList(ListView):
     model = Toy
-    template_name: 'toys/index.html'
+    template_name = 'toys/index.html'
 
 class ToyDetail(DetailView):
     model = Toy
     template_name = "toys/detail.html"
+
+class ToysCreate(CreateView):
+    model = Toy
+    fields = '__all__'
     
+class ToysUpdate(UpdateView):
+    model = Toy
+    fields = '__all__'
+
+class ToysDelete(DeleteView):
+    model = Toy
+    success_url = '/toys/'
 
 class FinchesCreate(CreateView):
     model = Finches
